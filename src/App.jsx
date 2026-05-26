@@ -113,7 +113,7 @@ export default function App() {
     <Workflow />,
     <WhyChooseUs />,
     <Philosophy />,
-    // <Welcome />,
+    <Welcome />,
     <Testimonials />,
     <ContactForm />
   ];
