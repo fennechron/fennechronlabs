@@ -5,7 +5,7 @@ const steps = [
   {
     id: 'discovery',
     phase: '01',
-    title: 'Discovery & Strategy',
+    title: 'Discovery',
     description: 'We begin by understanding your business goals, product vision, and user expectations to define the right technical and product direction.',
     icon: Search,
     metrics: ['Product Discovery', 'Technical Architecture', 'Scope Planning'],
@@ -14,7 +14,7 @@ const steps = [
   {
     id: 'design',
     phase: '02',
-    title: 'Product Design',
+    title: 'Design',
     description: 'We translate ideas into intuitive user experiences through structured design systems, interactive prototypes, and refined visual direction.',
     icon: PenTool,
     metrics: ['Wireframing', 'Interface Design', 'Interactive Prototypes'],
@@ -23,7 +23,7 @@ const steps = [
   {
     id: 'development',
     phase: '03',
-    title: 'Engineering',
+    title: 'Development',
     description: 'Our development team builds scalable, maintainable systems using modern technologies and engineering best practices.',
     icon: Code,
     metrics: ['Frontend Development', 'Backend Infrastructure', 'Database Engineering'],
@@ -32,7 +32,7 @@ const steps = [
   {
     id: 'launch',
     phase: '04',
-    title: 'Deployment & Growth',
+    title: 'Deployment',
     description: 'We ensure a smooth launch process and continue supporting your product with maintenance, improvements, and future feature development.',
     icon: Rocket,
     metrics: ['Cloud Deployment', 'Monitoring & Optimization', 'Ongoing Support'],
@@ -205,6 +205,8 @@ export default function Workflow() {
                     <img 
                       src={step.image} 
                       alt={step.title} 
+                      loading="lazy"
+                      decoding="async"
                       className="w-64 translate-y-[-150px] translate-x-30 absolute h-auto object-contain mix-blend-lighten opacity-90 drop-shadow-2xl"
                       onError={(e) => {
                         e.target.src = `https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`;

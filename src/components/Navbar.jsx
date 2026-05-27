@@ -41,7 +41,7 @@ export default function Navbar() {
           className="flex items-center gap-2.5 font-sans group"
         >
           <div className="relative w-14 h-14 flex items-center justify-center">
-            <img src="/Fennechron_Logo.png" alt="Fennechron Labs Logo" className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
+            <img src="/Fennechron_Logo.png" alt="Fennechron Labs Logo" fetchPriority="high" decoding="async" className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
             <div className="absolute inset-0 bg-brand-gold/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
           <div className="flex flex-col">

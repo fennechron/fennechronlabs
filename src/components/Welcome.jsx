@@ -113,7 +113,7 @@ export default function Welcome() {
   }, [loaded, images, frameIndex]);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-transparent" style={{ height: '400vh' }}>
+    <section ref={containerRef} className="relative w-full bg-transparent hidden md:block" style={{ height: '400vh' }}>
       <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-transparent backdrop-blur-md">
         {/* Placeholder if images are missing or loading */}
         {!loaded && (

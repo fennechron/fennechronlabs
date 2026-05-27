@@ -267,7 +267,7 @@ export default function ContactForm() {
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center gap-8">
           {/* Logo */}
           <div className="flex items-center gap-4">
-            <img src="/Fennechron_Logo.png" alt="Fennechron Labs Logo" className="w-12 h-12 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
+            <img src="/Fennechron_Logo.png" alt="Fennechron Labs Logo" loading="lazy" decoding="async" className="w-12 h-12 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
             <div className="flex flex-col">
               <span className="font-sans text-sm font-bold tracking-[0.3em] text-brand-white uppercase">
                 Fennechron

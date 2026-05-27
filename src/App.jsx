@@ -1,19 +1,20 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import React, { useRef, useState, useEffect, useLayoutEffect, Suspense, lazy } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ParticlesBackground from './components/ParticlesBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import CinematicText from './components/CinematicText';
-import PastWorks from './components/PastWorks';
-import Workflow from './components/Workflow';
-import WhyChooseUs from './components/WhyChooseUs';
-import CodeEditorAnim from './components/CodeEditorAnim';
-import Philosophy from './components/Philosophy';
-import Testimonials from './components/Testimonials';
-import DeepZoomReveal from './components/DeepZoomReveal';
-import ContactForm from './components/ContactForm';
-import Welcome from './components/Welcome';
+
+// Lazy loaded below-the-fold components
+const Services = lazy(() => import('./components/Services'));
+const CinematicText = lazy(() => import('./components/CinematicText'));
+const PastWorks = lazy(() => import('./components/PastWorks'));
+const Workflow = lazy(() => import('./components/Workflow'));
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
+const Philosophy = lazy(() => import('./components/Philosophy'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Founders = lazy(() => import('./components/Founders'));
+const Welcome = lazy(() => import('./components/Welcome'));
+const ContactForm = lazy(() => import('./components/ContactForm'));
 const StackSection = ({ children, index }) => {
   const [top, setTop] = useState(0);
   const ref = useRef(null);
@@ -114,8 +115,9 @@ export default function App() {
     <Workflow />,
     <WhyChooseUs />,
     <Philosophy />,
-    <Welcome />,
     <Testimonials />,
+    <Founders />,
+    <Welcome />,
     <ContactForm />
   ];
 
@@ -128,17 +130,23 @@ export default function App() {
       <Navbar />
 
       {/* 3. Stacking Cinematic Sections */}
-      <main className="w-full relative">
-        {sections.map((section, index) => (
-          <React.Fragment key={index}>
-            <StackSection index={index}>
-              {section}
-            </StackSection>
-            {/* The spacer creates a scroll delay where the current section remains stuck before the next section appears */}
-            {index < sections.length - 1 && <div className="hidden md:block" style={{ height: '75vh' }} />}
-          </React.Fragment>
-        ))}
-      </main>
+      <Suspense fallback={
+        <div className="w-full min-h-screen flex items-center justify-center bg-brand-black">
+          <div className="w-12 h-12 border-t-2 border-brand-gold rounded-full animate-spin"></div>
+        </div>
+      }>
+        <main className="w-full relative">
+          {sections.map((section, index) => (
+            <React.Fragment key={index}>
+              <StackSection index={index}>
+                {section}
+              </StackSection>
+              {/* The spacer creates a scroll delay where the current section remains stuck before the next section appears */}
+              {index < sections.length - 1 && <div className="hidden md:block" style={{ height: '75vh' }} />}
+            </React.Fragment>
+          ))}
+        </main>
+      </Suspense>
     </div>
   );
 }

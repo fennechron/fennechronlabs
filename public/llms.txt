@@ -1,0 +1,15 @@
+# Fennechron Labs
+
+Production-grade web and app development startup.
+
+## Services
+- Web Development
+- Flutter Apps
+- UI/UX Design
+- AI Applications
+
+## Website
+https://fennechron.com
+
+## Contact
+hello@fennechron.com

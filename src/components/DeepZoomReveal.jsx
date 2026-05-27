@@ -46,6 +46,8 @@ export default function DeepZoomReveal() {
           <img 
             src="/workplace.png" 
             alt="Fennechron Workspace" 
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.1]"
           />
         </motion.div>

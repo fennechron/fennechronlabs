@@ -164,6 +164,8 @@ export default function Testimonials() {
 						<img
 							src="/testimonial.webp"
 							alt="Client Testimonials"
+							loading="lazy"
+							decoding="async"
 							className="w-full z-10"
 
 						/>
