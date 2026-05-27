@@ -96,7 +96,7 @@ export default function Hero() {
         className="w-full lg:w-1/2 relative flex items-center justify-start z-10"
       >
         <div className="w-[75%] rounded-3xl overflow-hidden relative group">
-          <img src="/header1.png" alt="" className='w-full h-full object-cover' />
+          <img src="/header1.webp" alt="" className='w-full h-full object-cover' />
           {/* <video src="/videos/header.mp4" autoPlay  muted className=' h-1/2 w-1/2'></video> */}
         </div>
       </motion.div>

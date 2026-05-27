@@ -16,22 +16,51 @@ export default function ContactForm() {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate premium submit transition
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        projectType: 'web-dev',
-        budget: '$10k - $25k',
-        message: ''
+    setIsSubmitting(true);
+
+    const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSftMUSMauNmiia6y1_fXmLHzphn0CKeG1aEbN2cPXpIe965Tg/formResponse";
+    
+    const data = new FormData();
+    data.append("entry.1040997170", formData.name);
+    data.append("entry.2131720010", formData.email);
+    data.append("entry.392805212", formData.company);
+    data.append("entry.1042122459", formData.projectType);
+    // Budget is not captured in UI currently, skipping
+    data.append("entry.153725664", formData.message);
+
+    try {
+      await fetch(FORM_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: data
       });
-    }, 5000);
+      
+      // Delay slightly for premium feel even after network finishes
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            projectType: 'web-dev',
+            budget: '$10k - $25k',
+            message: ''
+          });
+        }, 5000);
+      }, 500);
+
+    } catch (err) {
+      console.error(err);
+      setIsSubmitting(false);
+      alert("Something went wrong. Please check your connection and try again.");
+    }
   };
 
   return (
@@ -175,7 +204,7 @@ export default function ContactForm() {
                         <option value="web-dev" className="bg-brand-black text-brand-white">Web Platform</option>
                         <option value="mobile-dev" className="bg-brand-black text-brand-white">Mobile Application</option>
                         <option value="design-sys" className="bg-brand-black text-brand-white">UI/UX Design System</option>
-                         
+                        <option value="other" className="bg-brand-black text-brand-white">Other</option> 
                       </select>
                     </div>
                   </div>
@@ -198,10 +227,11 @@ export default function ContactForm() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="mt-4 py-4 rounded-xl bg-brand-gold text-brand-black font-sans text-xs font-bold tracking-widest uppercase hover:bg-brand-white hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2 group/submit"
+                    disabled={isSubmitting}
+                    className="mt-4 py-4 rounded-xl bg-brand-gold text-brand-black font-sans text-xs font-bold tracking-widest uppercase hover:bg-brand-white hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2 group/submit disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Send Message
-                    <ArrowRight size={14} className="transform group-hover/submit:translate-x-1.5 transition-transform duration-300" />
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {!isSubmitting && <ArrowRight size={14} className="transform group-hover/submit:translate-x-1.5 transition-transform duration-300" />}
                   </button>
                 </motion.form>
               ) : (

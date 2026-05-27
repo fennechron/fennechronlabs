@@ -162,7 +162,7 @@ export default function Testimonials() {
 					{/* Decorative Image Above Testimonial Box */}
 					<div className=" translate-y-[50px]">
 						<img
-							src="/testimonial.png"
+							src="/testimonial.webp"
 							alt="Client Testimonials"
 							className="w-full z-10"
 

@@ -9,7 +9,7 @@ const steps = [
     description: 'We begin by understanding your business goals, product vision, and user expectations to define the right technical and product direction.',
     icon: Search,
     metrics: ['Product Discovery', 'Technical Architecture', 'Scope Planning'],
-    image: '/step1.png'
+    image: '/step1.webp'
   },
   {
     id: 'design',
@@ -18,7 +18,7 @@ const steps = [
     description: 'We translate ideas into intuitive user experiences through structured design systems, interactive prototypes, and refined visual direction.',
     icon: PenTool,
     metrics: ['Wireframing', 'Interface Design', 'Interactive Prototypes'],
-    image: '/step2.png'
+    image: '/step2.webp'
   },
   {
     id: 'development',
@@ -27,7 +27,7 @@ const steps = [
     description: 'Our development team builds scalable, maintainable systems using modern technologies and engineering best practices.',
     icon: Code,
     metrics: ['Frontend Development', 'Backend Infrastructure', 'Database Engineering'],
-    image: '/step3.png'
+    image: '/step3.webp'
   },
   {
     id: 'launch',
@@ -36,7 +36,7 @@ const steps = [
     description: 'We ensure a smooth launch process and continue supporting your product with maintenance, improvements, and future feature development.',
     icon: Rocket,
     metrics: ['Cloud Deployment', 'Monitoring & Optimization', 'Ongoing Support'],
-    image: '/step4.png'
+    image: '/step4.webp'
   }
 ];
 

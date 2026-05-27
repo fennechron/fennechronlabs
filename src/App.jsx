@@ -23,7 +23,8 @@ const StackSection = ({ children, index }) => {
     const updateTop = () => {
       const height = ref.current.getBoundingClientRect().height;
       const windowHeight = window.innerHeight;
-      if (height > windowHeight) {
+      // Only apply negative top if on desktop (>= 768px) and height > windowHeight
+      if (window.innerWidth >= 768 && height > windowHeight) {
         setTop(windowHeight - height);
       } else {
         setTop(0);
@@ -45,7 +46,7 @@ const StackSection = ({ children, index }) => {
   return (
     <div 
       ref={ref}
-      className={`sticky w-full bg-brand-black ${index > 0 ? 'shadow-[0_-30px_50px_rgba(0,0,0,0.8)] border-t border-brand-gold/10' : ''}`}
+      className={`w-full bg-brand-black md:sticky relative ${index > 0 ? 'md:shadow-[0_-30px_50px_rgba(0,0,0,0.8)] md:border-t md:border-brand-gold/10' : ''}`}
       style={{ 
         top: `${top}px`, 
         zIndex: index * 10 
@@ -134,7 +135,7 @@ export default function App() {
               {section}
             </StackSection>
             {/* The spacer creates a scroll delay where the current section remains stuck before the next section appears */}
-            {index < sections.length - 1 && <div style={{ height: '75vh' }} />}
+            {index < sections.length - 1 && <div className="hidden md:block" style={{ height: '75vh' }} />}
           </React.Fragment>
         ))}
       </main>
