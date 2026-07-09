@@ -119,8 +119,8 @@ export default function ContactForm() {
               </div>
               <div className="flex flex-col">
                 <span className="text-[9px] font-sans tracking-widest text-gray-500 uppercase">Email</span>
-                <a href="mailto:hello@fennechron.com" className="text-xs font-sans text-brand-white hover:text-brand-gold transition-colors duration-300">
-                  fennechronlabs@gmail.com
+                <a href="mailto:contact@fennechron.com" className="text-xs font-sans text-brand-white hover:text-brand-gold transition-colors duration-300">
+                  contact@fennechron.com
                 </a>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="bg-brand-gray/20 border border-white/5 rounded-xl px-4 py-3 text-xs text-brand-white font-sans focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 transition-all duration-300"
-                        placeholder="E.g. alex@aether.io"
+                        placeholder="E.g. alex@gmail.com"
                       />
                     </div>
                   </div>
@@ -188,7 +188,7 @@ export default function ContactForm() {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         className="bg-brand-gray/20 border border-white/5 rounded-xl px-4 py-3 text-xs text-brand-white font-sans focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 transition-all duration-300"
-                        placeholder="e.g. Acme Corp"
+                        placeholder="Your company name"
                       />
                     </div>
 
@@ -261,7 +261,6 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* FOOTER */}
       {/* FOOTER */}
       <footer className="w-full mt-24 border-t border-white/5 pt-12 pb-8 z-10">
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center gap-8">
